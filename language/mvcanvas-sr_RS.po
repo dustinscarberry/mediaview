@@ -1,0 +1,279 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2013-11-02 20:44-0500\n"
+"PO-Revision-Date: 2013-12-05 13:57+0100\n"
+"Last-Translator: Borisa Djuraskovic <borisad@webhostinghub.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin.php:36
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: admin.php:293 admin.php:932
+msgid "Create Shortcode"
+msgstr "NapraviI  Shortcode"
+
+#: admin.php:295 admin.php:556
+msgid "Shortcode Name:"
+msgstr "Ime  Shortcode-a:"
+
+#: admin.php:297
+msgid "ex: name of shortcode for your reference"
+msgstr "pr: ime shortcode-a za vašu rrferencu"
+
+#: admin.php:300 admin.php:561
+msgid "Display Height:"
+msgstr "Prikaži visinu:"
+
+#: admin.php:302 admin.php:308 admin.php:314 admin.php:563 admin.php:569
+#: admin.php:575 admin.php:1042
+msgid "Reset"
+msgstr "Resetuj"
+
+#: admin.php:303 admin.php:564
+msgid "ex: max height of media viewer (does not include caption)"
+msgstr "pr.max visina media pregledača (ne uključuje kadar)"
+
+#: admin.php:306 admin.php:567
+msgid "Canvas Color:"
+msgstr "Kanvas boje:"
+
+#: admin.php:309 admin.php:570
+msgid "ex: color of media view canvas (any hex value with #)"
+msgstr "pr: boja kanvas pregleda media (bilo koja hex vrednost)"
+
+#: admin.php:312 admin.php:573
+msgid "Caption Text Color:"
+msgstr "Kadar boje teksta:"
+
+#: admin.php:315 admin.php:576
+msgid "ex: color of caption text (any hex value with #)"
+msgstr "pr: boja kadra teksta (bilo koja hex vrednost sa #)"
+
+#: admin.php:318
+msgid "Save Shortcode"
+msgstr "Sačuvaj shortcode"
+
+#: admin.php:320 admin.php:480 admin.php:582 admin.php:658 admin.php:720
+msgid "Go Back"
+msgstr "Idi nazad"
+
+#: admin.php:435 admin.php:719
+msgid "Add Media Item"
+msgstr "Dodaj stavku Media"
+
+#: admin.php:437
+msgid "Media Type:"
+msgstr "Media tip:"
+
+#: admin.php:444
+msgid "ex: type of media to add"
+msgstr "pr.tip media za dodati"
+
+#: admin.php:448 admin.php:453
+msgid "Video URL:"
+msgstr "Video URL:"
+
+#: admin.php:450
+msgid "ex: url of video such as - http://vimeo.com/xxxxxxxx"
+msgstr "pr: url videa kao što je - http://vimeo.com/xxxxxxxx"
+
+#: admin.php:455
+msgid "ex: url of video such as - http://www.youtube.com/watch?v=xxxxxxxxxxxx"
+msgstr "pr: url videa kao što je - http://www.youtube.com/watch?v=xxxxxxxxxxxx"
+
+#: admin.php:458
+msgid "Photo URL:"
+msgstr "URL fotografije:"
+
+#: admin.php:460
+msgid "ex: photo that you want to add"
+msgstr "pr:fotografija koju želite da dodate"
+
+#: admin.php:463 admin.php:622
+msgid "Resolution:"
+msgstr "Rezolucija:"
+
+#: admin.php:469
+msgid "ex: resolution of video"
+msgstr "pr:rezolucija videa"
+
+#: admin.php:472 admin.php:650
+msgid "Caption:"
+msgstr "Kadar:"
+
+#: admin.php:474
+msgid "ex: an optional caption"
+msgstr "pr:opcionalni kadar"
+
+#: admin.php:477
+msgid "Save Media"
+msgstr "Sačuvaj Media"
+
+#: admin.php:554
+msgid "Edit Shortcode"
+msgstr "Edituj Shortcode"
+
+#: admin.php:558
+msgid "ex: name of shortcode"
+msgstr "pr:ime shortcode"
+
+#: admin.php:580 admin.php:656 admin.php:1046
+msgid "Save Changes"
+msgstr "Sačuvaj promene"
+
+#: admin.php:606
+msgid "Edit Media Item"
+msgstr "Edituj Media stavku"
+
+#: admin.php:642
+msgid "ex: resolution for media item"
+msgstr "pr:rezolucija media stavke"
+
+#: admin.php:652
+msgid "ex: caption for media item"
+msgstr "ex: kadar media stavke"
+
+#: admin.php:688
+msgid "Are you sure you want to delete this item?"
+msgstr "Da li ste sigurni da želite da obrišete ovu stavku?"
+
+#: admin.php:723
+msgid "Media Items"
+msgstr "Media stavke"
+
+#: admin.php:723
+msgid "items"
+msgstr "stavke"
+
+#: admin.php:727 admin.php:806
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: admin.php:728 admin.php:807
+msgid "Type"
+msgstr "Tip"
+
+#: admin.php:729 admin.php:808
+msgid "Caption"
+msgstr "Kadar"
+
+#: admin.php:730 admin.php:809 admin.php:864 admin.php:924
+msgid "Date Added"
+msgstr "Datum dodat"
+
+#: admin.php:731 admin.php:810 admin.php:866 admin.php:926
+msgid "Actions"
+msgstr "Delanje"
+
+#: admin.php:746
+msgid "No items found"
+msgstr "Nijedna stavka nije pronadjena"
+
+#: admin.php:779 admin.php:902
+msgid "Edit"
+msgstr "Edituj"
+
+#: admin.php:832
+msgid "Are you sure you want to delete this shortcode?"
+msgstr "Da li ste sigurni da želite da obrišete ovaj shortcode?"
+
+#: admin.php:862 admin.php:922
+msgid "Name"
+msgstr "Ime"
+
+#: admin.php:863 admin.php:923
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: admin.php:865 admin.php:925
+msgid "# Media Items"
+msgstr "# Media stavke"
+
+#: admin.php:881
+msgid "No shortcodes found"
+msgstr "Nijedan shortcode nije pronadjen"
+
+#: admin.php:904
+msgid "View"
+msgstr "Pregled"
+
+#: admin.php:937
+msgid "FAQ's"
+msgstr "FAQ's"
+
+#: admin.php:1009
+msgid "Hide Controls:"
+msgstr "Sakriti kontrole:"
+
+#: admin.php:1011
+msgid "ex: check to hide video player controls"
+msgstr "epr: čekiraj sakrivanje video player kontrola"
+
+#: admin.php:1015
+msgid "Video Player Controlbar Color:"
+msgstr "Video Player Controlbar boja:"
+
+#: admin.php:1020
+msgid "Red"
+msgstr "Crvena"
+
+#: admin.php:1020
+msgid "White"
+msgstr "Bela"
+
+#: admin.php:1035
+msgid "ex: set the color of the player's progress bar"
+msgstr "pr: podesiti boje razvitka bara player-a"
+
+#: admin.php:1040
+msgid "Video Controls Color:"
+msgstr "Boja Video kontrola:"
+
+#: admin.php:1043
+msgid "ex: color for video player controls (any hex value with #)"
+msgstr "pr: boja za video player kontrole (bilo koja hex vrednost sa #)"
+
+#: admin.php:1084
+msgid "Oops... something went wrong or there were no changes needed"
+msgstr "Ups...nastao je problem ili ne treba ništa da se menja"
+
+#: admin.php:1104 admin.php:1140
+msgid "Oops... all fields must have a value"
+msgstr "Ups...sva polja moraju da imaju vrednost"
+
+#: admin.php:1118
+msgid "Shortcode created"
+msgstr "Napravljen shortcode"
+
+#: admin.php:1120 admin.php:1156 admin.php:1260 admin.php:1284
+msgid "Oops... something went wrong"
+msgstr "Ups...nastao je problem "
+
+#: admin.php:1154
+msgid "Shortcode updated"
+msgstr "Shortcode update-ovan"
+
+#: admin.php:1234
+msgid ""
+"Oops... there seems to be a problem saving the thumbnail, please send the "
+"following information to the developer if the problem persists."
+msgstr ""
+"Ups...nastao je problem prilikom sačuvavanja thumbnail-a, pošaljite te "
+"informacije programeru ako se problem nastavi."
+
+#: admin.php:1258
+msgid "Item added"
+msgstr "Stavka dodata"
+
+#: admin.php:1282
+msgid "Media item updated"
+msgstr "Media stavka update-ovana"
