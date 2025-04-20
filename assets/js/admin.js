@@ -110,10 +110,9 @@ mvAdmin.setupEvents = function($) {
     });
 
     var _custom_media = true;
-    _orig_send_attachment = wp.media.editor.send.attachment;
+    var _orig_send_attachment = wp.media.editor.send.attachment;
 
     $('#photoURLInput').click(function(e) {
-      var send_attachment_bkp = wp.media.editor.send.attachment;
       var button = $(this);
       var id = button.attr('id').replace('_button', '');
       _custom_media = true;
