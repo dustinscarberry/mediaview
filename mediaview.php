@@ -2,15 +2,15 @@
 
 /*
 Plugin Name: MediaView
-Plugin URI: http://www.codeclouds.net/mediaview/
+Plugin URI: https://www.dscarberry.com/mediaview/
 Description: This plugin allows you to create media galleries / slideshows containing videos and photos.
-Version: 1.1.2
+Version: 1.1.3
 Author: Dustin Scarberry
-Author URI: http://www.codeclouds.net/
+Author URI: https://www.dscarberry.com/
 License: GPL2
 */
 
-/*  2013 Dustin Scarberry webmaster@codeclouds.net
+/*  2013 Dustin Scarberry bitsnbytes1001@gmail.com
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as
@@ -26,148 +26,109 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-if (!class_exists('mediaView'))
+namespace Dscarberry\MediaView;
+
+use Dscarberry\MediaView\Controller\View\DashboardController;
+use Dscarberry\MediaView\Controller\View\AppController;
+use Dscarberry\MediaView\Service\Maintenance;
+
+require(dirname(__FILE__) . '/config.php');
+
+class Bootstrap
 {
-  class mediaView
+  private $_options;
+
+  public function __construct()
   {
-    private $_mvadmin, $_mvfrontend, $_options, $_dirpath;
-    const CURRENT_VERSION = '1.1.2';
+    // register autoloader
+    spl_autoload_register([$this, 'autoloader']);
 
-    public function __construct()
-    {
-      //set dirpath
-      $this->_dirpath = dirname(__FILE__);
+    // load options
+    $this->_options = get_option('mediaview_main_opts');
 
-      //load options
-      $this->_options = get_option('mediaview_main_opts');
-
-      //check for upgrade
+    // check for upgrade
+    if (is_admin())
       $this->upgrade_check();
 
-      //load external files
-      $this->load_dependencies();
+    // load dependencies
+    $this->load_dependencies();
 
-      //activation hook
-      register_activation_hook(__FILE__, array($this, 'activate'));
-    }
+    // activation hook
+    register_activation_hook(__FILE__, [$this, 'activate']);
+  }
 
-    //activate plugin
-    public function activate($network)
-    {
-      //multisite call
-      if (function_exists('is_multisite') && is_multisite() && $network){
-
-        global $wpdb;
-        $old_blog =  $wpdb->blogid;
-
-        //Get all blog ids
-        $blogids =  $wpdb->get_col('SELECT blog_id FROM ' .  $wpdb->blogs);
-
-        foreach ($blogids as $blog_id)
-        {
-          switch_to_blog($blog_id);
-          $this->maintenance();
-        }
-
-        switch_to_blog($old_blog);
-      }
-
-      //regular call
-      $this->maintenance();
-    }
-
-    private function maintenance()
-    {
-      /*//php version check - to implement later
-      $requiredPHPVersion = '5.5';
-
-      if(version_compare(PHP_VERSION, $requiredPHPVersion, '<')){
-
-      deactivate_plugins( basename( __FILE__ ) );
-      wp_die('<p><strong>MediaView</strong> requires PHP version ' . $requiredPHPVersion . ' or greater.</p>', 'Plugin Activation Error');
-
-      }*/
-
-      //set up globals
-      global $wpdb;
-
-      //create database tables for plugin
-      require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-
-      $tbname[0] = $wpdb->prefix . 'mediaview_dataset';
-      $tbname[1] = $wpdb->prefix . 'mediaview_media';
-
-      $sql = "CREATE TABLE $tbname[0] (
-        DATA_ID int(11) NOT NULL AUTO_INCREMENT,
-        DATA_NAME varchar(40) NOT NULL,
-        DATA_DISPLAYHEIGHT int(11) NOT NULL,
-        DATA_CANVASCOLOR varchar(10) NOT NULL,
-        DATA_CAPTIONCOLOR varchar(10) NOT NULL,
-        DATA_UPDATEDATE int(11) NOT NULL,
-        DATA_MEDIACOUNT int(4) DEFAULT '0' NOT NULL,
-        UNIQUE KEY DATA_ID (DATA_ID)
-      );
-      CREATE TABLE $tbname[1] (
-        MEDIA_ID int(11) NOT NULL AUTO_INCREMENT,
-        MEDIA_VALUE longtext NOT NULL,
-        MEDIA_TYPE varchar(40) NOT NULL,
-        MEDIA_CAPTION varchar(60),
-        MEDIA_POS int(11) DEFAULT '0' NOT NULL,
-        MEDIA_UPDATEDATE int(11) NOT NULL,
-        DATA_ID int(11) NOT NULL,
-        UNIQUE KEY MEDIA_ID (MEDIA_ID)
-      );";
-
-      dbDelta($sql);
-
-      if (empty($this->_options))
-        $this->_options = array();
-
-      $dft['ytHideControls'] = 'yes';
-      $dft['ytProgressColor'] = 'white';
-      $dft['vimeoControlColor'] = '#00adef';
-      $dft['version'] =  self::CURRENT_VERSION;
-
-      $this->_options = $this->_options + $dft;
-
-      update_option('mediaview_main_opts', $this->_options);
-
-      //create photo cache directory if needed
-      $dir = wp_upload_dir();
-      $dir = $dir['basedir'];
-
-      wp_mkdir_p($dir . '/mediaview-cache');
-    }
-
-    private function upgrade_check()
-    {
-      if (!isset($this->_options['version']) || $this->_options['version'] < self::CURRENT_VERSION)
-      {
-        $this->_options['version'] = self::CURRENT_VERSION;
-        $this->maintenance();
-      }
-    }
-
-    //load dependencies for plugin
-    private function load_dependencies()
-    {
-      load_plugin_textdomain('mvcanvas', false, 'mediaview/language');
-
-      //load backend or frontend dependencies
-      if (is_admin())
-      {
-        require ($this->_dirpath . '/admin.php');
-        $this->_mvadmin = new mediaViewAdmin(self::CURRENT_VERSION);
-      }
-      else
-      {
-        require ($this->_dirpath . '/frontend.php');
-        $this->_mvfrontend = new mediaViewFrontend(self::CURRENT_VERSION);
-      }
+  public function autoloader($className)
+  {
+    if (strpos($className, 'Dscarberry\MediaView') !== false) {
+      $className = str_replace('\\', '/', $className);
+      $className = str_replace('Dscarberry/MediaView/', '', $className);
+      require_once('src/' . $className . '.php');
     }
   }
 
-  $mediaview = new mediaView();
+  public function activate($network)
+  {
+    // multisite call
+    if (function_exists('is_multisite') && is_multisite() && $network){
 
+      global $wpdb;
+      $old_blog =  $wpdb->blogid;
+
+      // get all blog ids
+      $blogIds =  $wpdb->get_col('SELECT blog_id FROM ' .  $wpdb->blogs);
+
+      foreach ($blogIds as $blogId)
+      {
+        switch_to_blog($blogId);
+        $this->maintenance();
+      }
+
+      switch_to_blog($old_blog);
+    }
+
+    // regular call
+    $this->maintenance();
+  }
+
+  private function maintenance()
+  {
+    new Maintenance();
+  }
+
+  private function upgrade_check()
+  {
+    if (!isset($this->_options['version']) || $this->_options['version'] < DS_MEDIAVIEW_VERSION) {
+      $this->maintenance();
+      $this->_options['version'] = DS_MEDIAVIEW_VERSION;
+      update_option('mediaview_main_opts', $this->options);  
+    }
+  }
+
+  private function load_dependencies()
+  {
+    load_plugin_textdomain('mvcanvas', false, '/mediaview/translations');
+
+    // load app or dashboard
+    if (is_admin()) 
+      new DashboardController();
+    else
+      new AppController();
+  }
 }
-?>
+
+// php version check
+function showNotice()
+{
+  echo '<div class="error e-message"><p>MediaView - PHP version ' . DS_MEDIAVIEW_MIN_PHP_VERSION . ' or greater required. You currently have version ' . phpversion() . '</p></div>';
+}
+
+function deactivate()
+{
+  deactivate_plugins(plugin_basename(__FILE__));
+}
+
+if (strnatcmp(phpversion(), DS_MEDIAVIEW_MIN_PHP_VERSION) < 0) {
+  add_action('admin_notices', 'Dscarberry\MediaView\showNotice');
+  add_action('admin_notices', 'Dscarberry\MediaView\deactivate');
+} else
+  new Bootstrap();

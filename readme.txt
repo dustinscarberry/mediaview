@@ -4,7 +4,7 @@ Donate link: http://www.codeclouds.net/mediaview/
 Tags: video, gallery, youtube, vimeo, slideshow, photo
 Requires at least: 4.4.0
 Tested up to: 4.7.3
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,9 @@ MediaView supports YouTube, Vimeo, and photos.
 3. A listing of media in the administration panel
 
 == Changelog ==
+
+= 1.1.3 =
+* Major Refactoring
 
 = 1.1.2 =
 * Minor code optimizations
