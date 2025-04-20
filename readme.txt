@@ -1,6 +1,6 @@
 === MediaView ===
 Contributors: dman25560
-Donate link: http://www.codeclouds.net/mediaview/
+Donate link: htts://dscarberry.com/mediaview/
 Tags: video, gallery, youtube, vimeo, slideshow, photo
 Requires at least: 4.4.0
 Tested up to: 4.7.3
@@ -33,7 +33,7 @@ Features Include:
 
 = Where can I go for help using / installing this plugin? =
 
-Just send an email to dustin@codeclouds.net with a link to your problem webpage if possible.
+Just send an email to bitsnbytes1001@gmail.com with a link to your problem webpage if possible.
 
 = What types of media does the slider / viewer support? =
 
