@@ -3,6 +3,7 @@
 namespace Dscarberry\MediaView\View;
 
 use Dscarberry\MediaView\Repository\DatasetRepository;
+use Dscarberry\MediaView\Service\Factory\DatasetFactory;
 
 class ShortcodeListTableView extends WPListTableBaseView
 {

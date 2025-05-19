@@ -33,7 +33,7 @@ Features Include:
 
 = Where can I go for help using / installing this plugin? =
 
-Just send an email to bitsnbytes1001@gmail.com with a link to your problem webpage if possible.
+For assistance with this plugin contact me at dscarberry.com
 
 = What types of media does the slider / viewer support? =
 

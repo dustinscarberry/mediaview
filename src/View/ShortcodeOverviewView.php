@@ -29,7 +29,7 @@ class ShortcodeOverviewView
         <div class="inside">
           <div class="mv-form-box">
             <ul>
-              <li>For assistance with this plugin send an email to <a href="mailto:bitsnbytes1001@gmail.com" target="_blank">bitsnbytes1001@gmail.com</a>. Please, if possible, include a working link to the webpage where you are having an issue.</li>
+              <li>For assistance with this plugin contact me at <a href="https://dscarberry.com" target="_blank">dscarberry.com</a></li>
             </ul>
           </div>
         </div>
