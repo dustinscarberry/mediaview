@@ -1,9 +1,9 @@
 === MediaView ===
 Contributors: dman25560
-Donate link: htts://dscarberry.com/mediaview/
+Donate link: https://dscarberry.com/mediaview/
 Tags: video, gallery, youtube, vimeo, slideshow, photo
 Requires at least: 4.4.0
-Tested up to: 6.8.1
+Tested up to: 6.8
 Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
