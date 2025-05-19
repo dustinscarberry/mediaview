@@ -49,6 +49,7 @@ MediaView supports YouTube, Vimeo, and photos.
 
 = 1.1.3 =
 * Major Refactoring
+* PHP 8 and above required
 
 = 1.1.2 =
 * Minor code optimizations
